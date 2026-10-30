@@ -1,0 +1,204 @@
+/*-- scss:defaults --*/
+
+// PGelisa på tur – fargeprofil for nettsider (lys modus).
+// Verdiene er rollene i designsystemet «PGelisa på tur».
+// Mørk modus overstyrer dem i pgelisa-mork.scss.
+
+// Flater og tekst
+$skum:          #F6F9F7 !default;  // sidebakgrunn
+$flate:         #FFFFFF !default;  // kort, kodeblokker, tabeller
+$flate-tonet:   #DCF0EC !default;  // rolige markeringer
+$tekst:         #0B2B2E !default;  // brødtekst og titler
+$tekst-dempet:  #4F5E5D !default;  // bildetekster, metadata
+$linje:         #D2D9D8 !default;  // tynne skillelinjer
+$linje-sterk:   #6B7B79 !default;  // kanter på kontroller
+
+// Merkefarger
+$merke:         #13A091 !default;  // brenning, store flater (ikke tekst)
+$merke-pa:      #06201E !default;  // tekst oppå merke
+$merke-tekst:   #06695F !default;  // lenker og uthevinger
+$dyp:           #0E4A52 !default;  // dypvann, tittelfelt
+$dyp-pa:        #FFFFFF !default;  // tekst oppå dyp
+$aksent-lav:    #C9D43C !default;  // kartlav, liten aksent
+$fokus:         #06695F !default;  // fokusring
+
+// Status
+$status-ok:              #06695F !default;
+$status-ok-flate:        #EDFAF8 !default;
+$status-info:            #185E95 !default;
+$status-info-flate:      #F1F8FE !default;
+$status-advarsel:        #9A3501 !default;
+$status-advarsel-flate:  #FFF4F0 !default;
+$status-feil:            #B81D2E !default;
+$status-feil-flate:      #FEF4F3 !default;
+
+// Bootstrap og Quarto
+$body-bg:            $skum;
+$body-color:         $tekst;
+$body-secondary-color: $tekst-dempet;
+$link-color:         $merke-tekst;
+$link-decoration:    underline;
+$primary:            $merke-tekst;
+$secondary:          $tekst-dempet;
+$success:            $status-ok;
+$info:               $status-info;
+$warning:            $status-advarsel;
+$danger:             $status-feil;
+$border-color:       $linje;
+
+$font-family-sans-serif: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+$headings-font-family:   "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+$font-family-monospace:  ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+$font-size-root:         17px;
+$line-height-base:       1.6;
+$headings-font-weight:   700;
+$headings-color:         $tekst;
+
+$code-color:             $tekst;
+$code-bg:                $flate-tonet;
+$code-block-bg:          $flate;
+$code-block-border-left: false;
+
+$toc-color:              $tekst-dempet;
+$toc-active-border:      $merke;
+
+$callout-color-note:      $status-info;
+$callout-color-tip:       $status-ok;
+$callout-color-important: $tekst;
+$callout-color-warning:   $status-advarsel;
+$callout-color-caution:   $status-feil;
+
+$callout-flate-note:      $status-info-flate;
+$callout-flate-tip:       $status-ok-flate;
+$callout-flate-important: $flate-tonet;
+$callout-flate-warning:   $status-advarsel-flate;
+$callout-flate-caution:   $status-feil-flate;
+
+/*-- scss:rules --*/
+
+// Fontene ligger i utvidelsen og bygges inn i HTML-fila, så siden henter ingenting utenfra.
+// Stiene gjelder dokumenter som ligger i prosjektets rotmappe.
+@font-face { font-family: "Atkinson Hyperlegible"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("_extensions/pgelisa/fonts/AtkinsonHyperlegible-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("_extensions/pgelisa/fonts/AtkinsonHyperlegible-Bold.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-weight: 400; font-style: italic; font-display: swap;
+  src: url("_extensions/pgelisa/fonts/AtkinsonHyperlegible-Italic.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-weight: 700; font-style: italic; font-display: swap;
+  src: url("_extensions/pgelisa/fonts/AtkinsonHyperlegible-BoldItalic.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 600; font-style: normal; font-display: swap;
+  src: url("_extensions/pgelisa/fonts/BricolageGrotesque-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("_extensions/pgelisa/fonts/BricolageGrotesque-Bold.woff2") format("woff2"); }
+
+// Tittelfelt: rolig flate i dypvann med det forenklede merket til høyre
+.quarto-title-banner {
+  background-color: $dyp;
+  color: $dyp-pa;
+  background-image: url("_extensions/pgelisa/logo/pgelisa-merke-forenklet.svg");
+  background-repeat: no-repeat;
+  background-size: 104px 104px;
+  background-position: right 2rem center;
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
+
+  .quarto-title { padding-right: 8rem; }
+  h1.title { color: $dyp-pa; font-weight: 700; letter-spacing: -0.01em; }
+  .subtitle { color: $dyp-pa; opacity: 1; font-family: $font-family-sans-serif; }
+  .quarto-title-meta-heading, .quarto-title-meta-contents, a { color: $dyp-pa; }
+}
+
+@media (max-width: 575.98px) {
+  .quarto-title-banner { background-size: 64px 64px; background-position: right 1rem top 1rem;
+    .quarto-title { padding-right: 4.5rem; } }
+}
+
+.quarto-title-meta-heading { font-family: $headings-font-family; font-weight: 600; }
+
+// Overskrifter
+h1, h2, h3, h4 { font-family: $headings-font-family; color: $tekst; }
+h2 {
+  border-bottom: 1px solid $linje;
+  padding-bottom: 0.3rem;
+  margin-top: 2.5rem;
+}
+
+// Lenker og fokus
+a { text-underline-offset: 0.15em; }
+a:focus-visible, button:focus-visible, .nav-link:focus-visible, summary:focus-visible {
+  outline: 2px solid $fokus;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+// Innholdsfortegnelse
+#TOC, nav#TOC {
+  .nav-link.active, a.active { color: $merke-tekst; font-weight: 700; }
+}
+
+// Kodeblokker: hvit flate med tynn ramme
+div.sourceCode, pre.sourceCode {
+  background-color: $flate;
+  border: 1px solid $linje;
+  border-radius: 10px;
+}
+div.sourceCode pre.sourceCode { border: 0; }
+code:not(.sourceCode), p code:not(.sourceCode), li code:not(.sourceCode) {
+  background-color: $flate-tonet;
+  color: $tekst;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+.code-copy-button { color: $tekst-dempet; }
+.code-copy-button:hover { color: $merke-tekst; }
+
+// Taster (kbd-snarveien)
+kbd, .kbd {
+  font-family: $font-family-sans-serif;
+  background-color: $flate;
+  color: $tekst;
+  border: 1px solid $linje-sterk;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0.05em 0.4em;
+  box-shadow: none;
+}
+
+// Callouts: hel tynn ramme i statusfargen og tonet flate.
+// Profilen bruker ikke tykke, fargede sidekanter.
+@mixin pgelisa-callout($farge, $flate) {
+  border: 1px solid $farge !important;
+  border-left-width: 1px !important;
+  border-radius: 10px;
+  background-color: $flate;
+  .callout-header { background-color: transparent !important; border: 0; }
+  .callout-title-container, .callout-header .callout-title-container { color: $farge; font-family: $headings-font-family; font-weight: 600; }
+}
+div.callout-note      { @include pgelisa-callout($callout-color-note, $callout-flate-note); }
+div.callout-tip       { @include pgelisa-callout($callout-color-tip, $callout-flate-tip); }
+div.callout-important { @include pgelisa-callout($callout-color-important, $callout-flate-important); }
+div.callout-warning   { @include pgelisa-callout($callout-color-warning, $callout-flate-warning); }
+div.callout-caution   { @include pgelisa-callout($callout-color-caution, $callout-flate-caution); }
+div.callout .callout-body-container { color: $tekst; }
+
+// Faner (Mac/Windows)
+.panel-tabset .nav-tabs { border-bottom-color: $linje; }
+.panel-tabset .nav-link { color: $tekst-dempet; font-family: $headings-font-family; font-weight: 600; }
+.panel-tabset .nav-link.active {
+  color: $merke-tekst;
+  background-color: $flate;
+  border-color: $linje $linje $flate;
+}
+.panel-tabset .tab-content {
+  background-color: $flate;
+  border: 1px solid $linje;
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+}
+
+// Skillelinjer
+hr { border-color: $linje; opacity: 1; }
+
+// Tabeller
+.table { --bs-table-bg: #{$flate}; border-color: $linje; }
+.table > thead { background-color: $flate-tonet; }

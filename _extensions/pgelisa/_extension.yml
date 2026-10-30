@@ -1,0 +1,43 @@
+title: PGelisa på tur
+author: Elisabeth Engum
+version: 1.0.0
+quarto-required: ">=1.6.0"
+contributes:
+  formats:
+    common:
+      lang: nb
+      toc: true
+      toc-title: Innhold
+      toc-depth: 2
+      date-format: "D. MMMM YYYY"
+      language:
+        title-block-published: "Sist oppdatert"
+        title-block-author-plural: "Forfattere"
+    html:
+      theme:
+        light: [pgelisa.scss]
+        dark: [pgelisa.scss, pgelisa-mork.scss]
+      highlight-style:
+        light: pgelisa.theme
+        dark: pgelisa-mork.theme
+      favicon: _extensions/pgelisa/logo/pgelisa-merke-mikro.svg
+      embed-resources: true
+      respect-user-color-scheme: true
+      title-block-banner: true
+      smooth-scroll: true
+      code-copy: true
+      anchor-sections: true
+    pdf:
+      pdf-engine: xelatex
+      documentclass: scrartcl
+      papersize: a4
+      fontsize: 11pt
+      geometry:
+        - margin=2.3cm
+      highlight-style: pgelisa.theme
+      include-in-header: pgelisa-pdf.tex
+      colorlinks: true
+      linkcolor: pgmerketekst
+      urlcolor: pgmerketekst
+      citecolor: pgmerketekst
+      toccolor: pgtekst
