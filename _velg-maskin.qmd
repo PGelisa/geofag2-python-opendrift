@@ -1,0 +1,22 @@
+::: {.content-visible when-format="html"}
+::: pg-velg-maskin
+Hvilken maskin har du?
+
+::: {.panel-tabset group="os"}
+## Mac
+Guiden viser oppskriften for **Mac**. Velger du Windows her, endres alle bokser og taster nedover på siden.
+
+På Mac heter Enter-tasten {{< taster return >}}, og Ctrl heter {{< taster control >}}. Pass på at du bruker {{< taster control >}} og ikke {{< taster command >}} (⌘) når guiden ber deg trykke control.
+
+## Windows
+Guiden viser oppskriften for **Windows**. Velger du Mac her, endres alle bokser og taster nedover på siden.
+:::
+:::
+:::
+
+::: {.content-visible when-format="pdf"}
+::: callout-note
+## Mac og Windows
+Oppskriften er litt ulik på Mac og Windows. På Mac heter Enter-tasten {{< taster return >}}, og Ctrl heter {{< taster control >}}. Bruk {{< taster control >}}, ikke {{< taster command >}}, når guiden ber deg trykke control.
+:::
+:::

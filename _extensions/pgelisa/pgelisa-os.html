@@ -1,0 +1,63 @@
+<script>
+// PGelisa på tur: valg mellom Mac og Windows.
+// Quarto bytter alle faner med group="os" samtidig og husker valget i nettleseren.
+// Dette skriptet
+// 1) velger Windows-fanen første gang hvis eleven bruker Windows,
+// 2) viser riktig variant av tekst og taster laget med snarveiene taster og os.
+(function () {
+  function osFromTab(link) {
+    var t = (link.textContent || "").toLowerCase();
+    if (t.indexOf("mac") !== -1) return "mac";
+    if (t.indexOf("windows") !== -1) return "win";
+    return null;
+  }
+  function osTabs() {
+    return Array.prototype.slice.call(
+      document.querySelectorAll('div[data-group="os"] a[id^="tabset-"]'));
+  }
+  function setOS(os) {
+    if (os) document.documentElement.setAttribute("data-pg-os", os);
+  }
+  function activeOS() {
+    var links = osTabs();
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].classList.contains("active")) return osFromTab(links[i]);
+    }
+    return null;
+  }
+  function guess() {
+    var ua = window.navigator.userAgent || "";
+    return ua.indexOf("Windows") !== -1 ? "win" : "mac";
+  }
+  function hasStoredChoice() {
+    try {
+      var data = JSON.parse(window.localStorage.getItem("quarto-persistent-tabsets-data") || "{}");
+      return Boolean(data && data.os);
+    } catch (e) { return false; }
+  }
+
+  setOS(guess());
+
+  window.addEventListener("pageshow", function () {
+    // Vent til Quarto har koblet opp fanene og hentet et lagret valg.
+    window.setTimeout(function () {
+      var links = osTabs();
+      links.forEach(function (link) {
+        link.addEventListener("click", function () {
+          window.setTimeout(function () { setOS(osFromTab(link)); }, 0);
+        });
+      });
+      if (!hasStoredChoice()) {
+        var want = guess();
+        for (var i = 0; i < links.length; i++) {
+          if (osFromTab(links[i]) === want) {
+            if (!links[i].classList.contains("active")) links[i].click();
+            break;
+          }
+        }
+      }
+      setOS(activeOS() || guess());
+    }, 0);
+  });
+})();
+</script>

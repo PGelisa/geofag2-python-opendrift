@@ -164,6 +164,16 @@ kbd, .kbd {
   box-shadow: none;
 }
 
+// Taster laget med snarveien taster, og tekst som er ulik på Mac og Windows
+.pg-taster { white-space: nowrap; }
+.pg-pluss { color: $tekst-dempet; }
+html[data-pg-os="mac"] .pg-os-win { display: none; }
+html:not([data-pg-os="mac"]) .pg-os-mac { display: none; }
+
+// Fanene for valg av maskin øverst i guiden
+.pg-velg-maskin { margin: 1.5rem 0; }
+.pg-velg-maskin > p:first-child { font-family: $headings-font-family; font-weight: 600; margin-bottom: 0.5rem; }
+
 // Callouts: hel tynn ramme i statusfargen og tonet flate.
 // Profilen bruker ikke tykke, fargede sidekanter.
 @mixin pgelisa-callout($farge, $flate) {
