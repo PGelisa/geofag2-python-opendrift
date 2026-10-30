@@ -16,10 +16,12 @@ I denne notatboka bruker du **OpenDrift**, det samme verktøyet som Meteorologis
 
 [1) Lage et miljø med OpenDrift](#miljo)
 
-[2) Laste ned notatboka](#notatbok)
+[2) Hente notatboka](#notatbok)
 
 [3) Åpne og kjøre](#aapne)
 :::
+
+{{< include _velg-maskin.qmd >}}
 
 ---
 
@@ -33,33 +35,54 @@ Du må ha installert **Miniforge** først. Har du gjort det i Geofag 2 eller i m
 
 OpenDrift trenger mange pakker, så den får sitt eget miljø, `opendrift`. Miljøet `geofag2` får være i fred.
 
-::: panel-tabset
+::: {.panel-tabset group="os"}
 ## Mac
 Åpne programmet «Terminal».
-Du kan søke etter appen med Spotlight: enten forstørrelsesglasset på menylinja øverst på skjermen eller snarveien {{< kbd Cmd-mellomrom >}} på tastaturet.
+Du kan søke etter appen med Spotlight: enten forstørrelsesglasset på menylinja øverst på skjermen eller snarveien {{< taster command mellomrom >}} på tastaturet.
 
 ## Windows
 Åpne programmet «Miniforge Prompt».
-Du kan søke etter appen fra Start-menyen. Trykk {{< kbd Windows >}}-knappen på tastaturet.
+Du kan søke etter appen fra Start-menyen. Trykk på {{< taster Windows >}}-tasten på tastaturet.
 :::
 
-Kopier inn denne linja og trykk {{< kbd Enter >}}:
+Kopier inn denne linja og trykk {{< taster Enter mac="return" >}}:
 
 ``` bash
 conda create -n opendrift python=3.12 opendrift jupyterlab cmocean
 ```
 
-Når programmet har tenkt seg om, får du opp `Proceed ([y]/n)?`. Trykk {{< kbd Enter >}} for å fortsette. Nå lastes det ned mange pakker, så dette kan ta 10–20 minutter. Vent til du får tilbake linja med `(base)` før du går videre.
+Når programmet har tenkt seg om, får du opp `Proceed ([y]/n)?`. Trykk {{< taster Enter mac="return" >}} for å fortsette. Nå lastes det ned mange pakker, så dette kan ta 10–20 minutter. Vent til du får tilbake linja med `(base)` før du går videre.
 
-## 2 Laste ned notatboka {#notatbok}
+## 2 Hente notatboka {#notatbok}
 
-Last ned [driftvarsling_opendrift.ipynb](opendrift/driftvarsling_opendrift.ipynb){download="driftvarsling_opendrift.ipynb"} og lagre den i mappa **Nedlastinger**.
+Du lager en egen mappe til Geofag 2 og henter notatboka rett dit. Da slipper du å lete etter den blant alt annet i Nedlastinger.
+
+Åpne {{< os win="«Miniforge Prompt»" mac="«Terminal»" >}}, og skriv inn én linje om gangen. Trykk {{< taster Enter mac="return" >}} etter hver linje.
+
+``` bash
+mkdir geofag2
+```
+
+``` bash
+cd geofag2
+```
+
+``` bash
+curl -O https://pgelisa.github.io/geofag2-python-opendrift/opendrift/driftvarsling_opendrift.ipynb
+```
+
+Den første linja lager mappa `geofag2`, den andre går inn i mappa, og den tredje henter notatboka. Mappa ligger i hjemmemappa di, den som har samme navn som brukeren din. Har du laget mappa før, sier den første linja at den finnes allerede. Det gjør ingenting.
+
+::: {.callout-note collapse="true"}
+## Hvis det ikke går å hente notatboka med curl
+Start Jupyter Lab som i [steg 3](#aapne). Last ned [driftvarsling_opendrift.ipynb](opendrift/driftvarsling_opendrift.ipynb){download="driftvarsling_opendrift.ipynb"} med nettleseren, og dra fila fra nedlastingslinja i nettleseren inn i fillista til venstre i Jupyter Lab. Da havner den i mappa `geofag2`.
+:::
 
 Vil du se hvordan notatboka ser ut når den er kjørt, kan du åpne [eksempelkjøringen](opendrift/driftvarsling_opendrift_eksempelkjoring.html). Den viser varselet fra 30. oktober 2026, så dine figurer blir annerledes.
 
 ## 3 Åpne og kjøre {#aapne}
 
-**1) Åpne «Miniforge Prompt» (Windows) / «Terminal» (Mac).**
+**1) Åpne {{< os win="«Miniforge Prompt»" mac="«Terminal»" >}}.**
 
 **2) Skriv inn**
 
@@ -72,10 +95,10 @@ Du ser at du har gjort riktig om det står `(opendrift)`, og ikke `(base)` foran
 **3) Gå til mappa med notatboka**
 
 ``` bash
-cd Downloads
+cd geofag2
 ```
 
-Mappa heter «Nedlastinger» når du ser den i Finder eller Filutforsker, men `Downloads` i terminalen.
+Terminalen starter alltid i hjemmemappa di, så du kommer rett inn i mappa `geofag2`.
 
 **4) Skriv inn**
 
@@ -83,7 +106,7 @@ Mappa heter «Nedlastinger» når du ser den i Finder eller Filutforsker, men `D
 jupyter lab
 ```
 
-Nå åpner programmet seg i en fane i nettleseren. Dobbeltklikk på `driftvarsling_opendrift.ipynb` i lista til venstre, og kjør cellene én etter én med {{< kbd Shift-Enter >}}.
+Nå åpner programmet seg i en fane i nettleseren. Dobbeltklikk på `driftvarsling_opendrift.ipynb` i lista til venstre, og kjør cellene én etter én med {{< taster Shift Enter mac="shift return" >}}.
 
 ::: callout-note
 ## Internett
@@ -93,7 +116,7 @@ Notatboka henter varsler fra Meteorologisk institutt (`thredds.met.no`), så du 
 ::: callout-tip
 ## Lukke
 Når du er ferdig med programmet, lukker du fanen i nettleseren.
-**I tillegg** går du tilbake til Miniforge Prompt / Terminal og trykker {{< kbd ctrl-c >}} på tastaturet.
+**I tillegg** går du tilbake til {{< os win="Miniforge Prompt" mac="Terminal" >}} og trykker {{< taster Ctrl C mac="control C" >}} på tastaturet.
 :::
 
 ::: {.callout-warning collapse="true"}
@@ -108,7 +131,7 @@ Da er miljøet ikke aktivert. Kjør `conda activate opendrift` på nytt og se et
 Miljøet er ikke laget ennå, *eller* så er det skrivefeil. Gå tilbake til [steg 1](#miljo).
 
 **Jeg finner ikke notatboka i Jupyter Lab**\
-Du har startet Jupyter Lab i feil mappe. Lukk med {{< kbd ctrl-c >}}, skriv `cd Downloads` og start `jupyter lab` på nytt.
+Du har startet Jupyter Lab i feil mappe. Lukk med {{< taster Ctrl C mac="control C" >}}, skriv `cd geofag2` og start `jupyter lab` på nytt.
 
 **`ModuleNotFoundError: No module named 'opendrift'`**\
 Jupyter Lab er startet fra feil miljø. Lukk alt og start på nytt fra [steg 3](#aapne).

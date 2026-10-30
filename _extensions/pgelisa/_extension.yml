@@ -3,6 +3,8 @@ author: Elisabeth Engum
 version: 1.0.0
 quarto-required: ">=1.6.0"
 contributes:
+  shortcodes:
+    - taster.lua
   formats:
     common:
       lang: nb
@@ -22,10 +24,12 @@ contributes:
         dark: pgelisa-mork.theme
       favicon: _extensions/pgelisa/logo/pgelisa-merke-mikro.svg
       embed-resources: true
+      include-after-body: pgelisa-os.html
       respect-user-color-scheme: true
       title-block-banner: true
       smooth-scroll: true
       code-copy: true
+      code-overflow: wrap
       anchor-sections: true
     pdf:
       pdf-engine: xelatex

@@ -22,6 +22,8 @@ En kort guide for å installere og åpne Jupyter Lab med Miniforge.
 [3) Åpne og kjøre](#aapne)
 :::
 
+{{< include _velg-maskin.qmd >}}
+
 ---
 
 ## 1 Installere Miniforge {#installere}
@@ -33,13 +35,17 @@ Miniforge laster du ned [her](https://conda-forge.org/download/).
 
 Velg fila som passer til maskinen din:
 
--   **Windows:** `Miniforge3-Windows-x86_64.exe`
-
+::: {.panel-tabset group="os"}
+## Mac
 -   **Mac med Apple-brikke (M1, M2, M3, M4):** `Miniforge3-MacOSX-arm64.pkg`
 
 -   **Mac med Intel:** `Miniforge3-MacOSX-x86_64.pkg`
 
 Er du usikker på hva slags Mac du har? Klikk på eplet øverst til venstre → «Om denne datamaskinen» → se på linja «Brikke» eller «Prosessor».
+
+## Windows
+-   **Windows:** `Miniforge3-Windows-x86_64.exe`
+:::
 
 ![](img/laste-ned-v2.png){fig-align="center"}
 :::
@@ -53,26 +59,26 @@ Når du har lastet ned fila:
 
 ## 2 Lage et miljø med Jupyter Lab og viktige pakker {#miljo}
 
-Resten av installasjonen skjer i terminalen. Det er litt ulikt på Mac og Windows. Se fanen for din maskin nedenfor.
+Resten av installasjonen skjer i terminalen. Det er litt ulikt på Mac og Windows.
 
-::: panel-tabset
+::: {.panel-tabset group="os"}
 ## Mac
 Åpne programmet «Terminal».
-Du kan søke etter appen med Spotlight: enten forstørrelsesglasset på menylinja øverst på skjermen eller snarveien {{< kbd Cmd-mellomrom >}} på tastaturet.
+Du kan søke etter appen med Spotlight: enten forstørrelsesglasset på menylinja øverst på skjermen eller snarveien {{< taster command mellomrom >}} på tastaturet.
 
 ## Windows
 Åpne programmet «Miniforge Prompt».
-Du kan søke etter appen fra Start-menyen. Trykk {{< kbd Windows >}}-knappen på tastaturet.
+Du kan søke etter appen fra Start-menyen. Trykk på {{< taster Windows >}}-tasten på tastaturet.
 :::
 
-I programmet/terminalen skal du skrive litt kode. Trykk {{< kbd Enter >}} etter hver linje. Husk at du kan kopiere inn kodelinjene herfra. Du trenger ikke skrive av.
+I programmet/terminalen skal du skrive litt kode. Trykk {{< taster Enter mac="return" >}} etter hver linje. Husk at du kan kopiere inn kodelinjene herfra. Du trenger ikke skrive av.
 
 ``` bash
 conda create -n geofag2 python=3.12 jupyterlab numpy matplotlib pandas scipy ipywidgets xarray netcdf4 cartopy requests
 ```
 
 **OBS:** dette er et forslag, du kan legge til eller trekke fra pakker etter behov. 
-Når programmet har tenkt seg om (av og til ganske lenge) får du opp `Proceed ([y]/n)?`. Trykk {{< kbd Enter >}} for å fortsette.
+Når programmet har tenkt seg om (av og til ganske lenge) får du opp `Proceed ([y]/n)?`. Trykk {{< taster Enter mac="return" >}} for å fortsette.
 
 Nå har vi laget et *miljø* (et roterom) der vi har installert alt vi trenger. Blir det kluss, eller vi trenger andre pakker og programmer i andre fag, kan vi lage nye miljø.
 
@@ -83,7 +89,7 @@ Nå har vi laget et *miljø* (et roterom) der vi har installert alt vi trenger. 
 Det som står videre her er måten du åpner Jupyter Lab på. **Alltid**.
 :::
 
-**1) Åpne «Miniforge Prompt» (Windows) / «Terminal» (Mac).**
+**1) Åpne {{< os win="«Miniforge Prompt»" mac="«Terminal»" >}}.**
 
 **2) Skriv inn**
 
@@ -103,7 +109,7 @@ Nå åpner programmet seg i en fane i nettleseren.
 ::: callout-tip
 ## Lukke
 Når du er ferdig med programmet, lukker du fanen i nettleseren.
-**I tillegg** går du tilbake til Miniforge Prompt / Terminal og trykker {{< kbd ctrl-c >}} på tastaturet.
+**I tillegg** går du tilbake til {{< os win="Miniforge Prompt" mac="Terminal" >}} og trykker {{< taster Ctrl C mac="control C" >}} på tastaturet.
 :::
 
 ::: {.callout-warning collapse="true"}

@@ -47,10 +47,27 @@ Utseendet kommer fra Quarto-utvidelsen i `_extensions/pgelisa`. Den gir to forma
 | `pgelisa-mork.scss` | Fargene i mørk modus |
 | `pgelisa-pdf.tex` | Farger, fonter, logo og callout-farger for PDF |
 | `pgelisa.theme`, `pgelisa-mork.theme` | Kodefarger i lys og mørk modus |
+| `taster.lua` | Snarveiene `taster` og `os` (se nedenfor) |
+| `pgelisa-os.html` | Skript som velger Mac eller Windows og viser riktige taster og navn |
 | `fonts/` | Atkinson Hyperlegible (brødtekst) og Bricolage Grotesque (titler), woff2 til nett og ttf til PDF |
 | `logo/` | Logoen i SVG, og som PDF til LaTeX |
 
 Fontene har SIL Open Font License.
+
+### Mac og Windows
+
+Øverst i hver guide velger eleven Mac eller Windows (`_velg-maskin.qmd`, tatt inn med `{{< include _velg-maskin.qmd >}}`). Alle faner med `group="os"` byttes samtidig, og valget huskes i nettleseren. Første gang velges Windows automatisk på Windows-maskiner.
+
+Taster og tekst som er ulik på de to maskinene, skrives med snarveiene fra utvidelsen:
+
+```markdown
+{{< taster Enter mac="return" >}}
+{{< taster Ctrl C mac="control C" >}}
+{{< taster Shift Enter mac="shift return" >}}
+{{< os win="«Miniforge Prompt»" mac="«Terminal»" >}}
+```
+
+Tastene skrives med navn, ikke symboler, slik at det står control og ikke ⌃ på Mac. I PDF står begge variantene, for eksempel «Ctrl + C (Mac: control + C)». Ikke bruk Quartos innebygde `kbd`, den gjør om tastenavn til symboler på Mac.
 
 ### Bruke profilen i et annet Quarto-prosjekt
 
