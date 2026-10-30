@@ -1,0 +1,43 @@
+# Publiserer de ferdig bygde guidene til GitHub Pages hver gang main endres.
+# Guidene bygges lokalt med «quarto render» og committes, så her bygges ingenting.
+
+name: Publiser til GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publiser:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Samle filene som skal publiseres
+        run: |
+          mkdir _site
+          cp index.html opendrift.html _site/
+          cp index.pdf opendrift.pdf _site/ 2>/dev/null || true
+          cp -r opendrift _site/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
