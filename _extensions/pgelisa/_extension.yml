@@ -26,6 +26,7 @@ contributes:
       title-block-banner: true
       smooth-scroll: true
       code-copy: true
+      code-overflow: wrap
       anchor-sections: true
     pdf:
       pdf-engine: xelatex
