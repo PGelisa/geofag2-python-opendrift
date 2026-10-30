@@ -13,3 +13,5 @@ __pycache__/
 *.tex
 !_extensions/**/*.tex
 *_files/
+
+/.quarto/
