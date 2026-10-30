@@ -1,30 +1,14 @@
 ---
 title: "Installere og åpne Jupyter Lab"
 subtitle: "Geofag 2 · Python-oppsett"
-lang: nb
 date: 2026-08-17
-date-format: "D. MMMM YYYY"
+other-links:
+  - text: Last ned som PDF
+    href: index.pdf
+    icon: file-pdf
 author:
   - "Torodd Ottestad"
   - "Elisabeth Engum"
-format: 
-  html:
-    embed-resources: true
-    output-file: "index.html"
-    title-block-banner: true
-    toc: true
-    toc-title: "Innhold"
-    toc-depth: 2
-    smooth-scroll: true
-    code-copy: true
-    code-block-bg: true
-  pdf:
-    output-file: "guide-miniforge.pdf"
-    include-in-header: geofag2-pdf-colors.tex
-    colorlinks: true
-    linkcolor: tealwave
-    urlcolor: ambersunset
-    citecolor: tealwave
 ---
 En kort guide for å installere og åpne Jupyter Lab med Miniforge.
 
@@ -38,11 +22,9 @@ En kort guide for å installere og åpne Jupyter Lab med Miniforge.
 [3) Åpne og kjøre](#aapne)
 :::
 
-⏱️ Sist oppdatert: 17.08.2026
-
 ---
 
-## 1️⃣ Installere Miniforge {#installere}
+## 1 Installere Miniforge {#installere}
 
 Miniforge laster du ned [her](https://conda-forge.org/download/).
 
@@ -69,9 +51,9 @@ Når du har lastet ned fila:
 -   på Windows: la det stå kryss ved **«Create start menu shortcuts»**
 -   **OBS:** Du trenger **ikke** lage bruker eller logge inn noe sted.
 
-## 2️⃣ Lage et miljø med Jupyter Lab og viktige pakker {#miljo}
+## 2 Lage et miljø med Jupyter Lab og viktige pakker {#miljo}
 
-Resten av installasjonen skjer i terminalen. Det er litt ulikt på Mac og Windows. Se aktuell fane under:
+Resten av installasjonen skjer i terminalen. Det er litt ulikt på Mac og Windows. Se fanen for din maskin nedenfor.
 
 ::: panel-tabset
 ## Mac
@@ -94,7 +76,7 @@ Når programmet har tenkt seg om (av og til ganske lenge) får du opp `Proceed (
 
 Nå har vi laget et *miljø* (et roterom) der vi har installert alt vi trenger. Blir det kluss, eller vi trenger andre pakker og programmer i andre fag, kan vi lage nye miljø.
 
-## 3️⃣ Åpne og kjøre {#aapne}
+## 3 Åpne og kjøre {#aapne}
 
 ::: callout-tip
 ## Tips
@@ -126,13 +108,16 @@ Når du er ferdig med programmet, lukker du fanen i nettleseren.
 
 ::: {.callout-warning collapse="true"}
 ## Om noe går galt
-**«conda: command not found» / «conda gjenkjennes ikke»**
+**«conda: command not found» / «conda gjenkjennes ikke»**\
 Lukk terminalvinduet helt og åpne det på nytt. På Windows: pass på at du bruker «Miniforge Prompt», ikke vanlig «Ledetekst» eller PowerShell.
-**Det står fortsatt `(base)`**
+
+**Det står fortsatt `(base)`**\
 Da er miljøet ikke aktivert. Kjør `conda activate geofag2` på nytt og se etter skrivefeil i navnet.
-**«EnvironmentNameNotFound»**
+
+**«EnvironmentNameNotFound»**\
 Miljøet er ikke laget ennå, *eller* så er det skrivefeil. Gå tilbake til [steg 2](#miljo).
-**Nettleserfanen åpner seg ikke av seg selv**
+
+**Nettleserfanen åpner seg ikke av seg selv**\
 Kopier adressen som begynner med `http://localhost:8888/...` fra terminalen og lim den inn i nettleseren.
 :::
 

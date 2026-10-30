@@ -3,5 +3,13 @@
 _site/
 __pycache__/
 .ipynb_checkpoints/
-/.quarto/
 **/*.quarto_ipynb
+
+# Mellomfiler fra LaTeX
+*.aux
+*.log
+*.toc
+*.out
+*.tex
+!_extensions/**/*.tex
+*_files/

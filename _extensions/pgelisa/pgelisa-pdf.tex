@@ -1,0 +1,102 @@
+% PGelisa på tur – fargeprofil for PDF (xelatex eller lualatex, KOMA-Script).
+% Fargene er rollene i designsystemet «PGelisa på tur».
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% Flater og tekst
+\definecolor{pgskum}{HTML}{F6F9F7}
+\definecolor{pgflate}{HTML}{FFFFFF}
+\definecolor{pgflatetonet}{HTML}{DCF0EC}
+\definecolor{pgtekst}{HTML}{0B2B2E}
+\definecolor{pgtekstdempet}{HTML}{4F5E5D}
+\definecolor{pglinje}{HTML}{D2D9D8}
+\definecolor{pglinjesterk}{HTML}{6B7B79}
+% Merkefarger
+\definecolor{pgmerke}{HTML}{13A091}
+\definecolor{pgmerketekst}{HTML}{06695F}
+\definecolor{pgdyp}{HTML}{0E4A52}
+\definecolor{pgaksentlav}{HTML}{C9D43C}
+% Status
+\definecolor{pgok}{HTML}{06695F}
+\definecolor{pgokflate}{HTML}{EDFAF8}
+\definecolor{pginfo}{HTML}{185E95}
+\definecolor{pginfoflate}{HTML}{F1F8FE}
+\definecolor{pgadvarsel}{HTML}{9A3501}
+\definecolor{pgadvarselflate}{HTML}{FFF4F0}
+\definecolor{pgfeil}{HTML}{B81D2E}
+\definecolor{pgfeilflate}{HTML}{FEF4F3}
+
+% Fonter: Atkinson Hyperlegible i brødtekst, Bricolage Grotesque i titler.
+% Stiene gjelder dokumenter som ligger i prosjektets rotmappe.
+\usepackage{fontspec}
+\setmainfont{AtkinsonHyperlegible}[
+  Path = _extensions/pgelisa/fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic]
+\setsansfont{AtkinsonHyperlegible}[
+  Path = _extensions/pgelisa/fonts/,
+  Extension = .ttf,
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+  BoldItalicFont = *-BoldItalic]
+\newfontfamily\pgtitlerfont{BricolageGrotesque}[
+  Path = _extensions/pgelisa/fonts/,
+  Extension = .ttf,
+  UprightFont = *-Bold,
+  BoldFont = *-Bold]
+\newfontfamily\pgtitlerfonthalv{BricolageGrotesque}[
+  Path = _extensions/pgelisa/fonts/,
+  Extension = .ttf,
+  UprightFont = *-SemiBold,
+  BoldFont = *-Bold]
+
+\color{pgtekst}
+
+% Tegn som mangler i Atkinson Hyperlegible
+\usepackage{newunicodechar}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{←}{\ensuremath{\leftarrow}}
+
+% Lange kodelinjer brytes i stedet for å gå ut over kanten
+\usepackage{fvextra}
+\AtBeginDocument{%
+  \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}%
+}
+
+% Callout-farger i profilens statusfarger. Quarto definerer sine egne etter denne fila,
+% så de overstyres når dokumentet starter.
+\AtBeginDocument{%
+  \definecolor{quarto-callout-note-color}{HTML}{185E95}%
+  \definecolor{quarto-callout-note-color-frame}{HTML}{185E95}%
+  \definecolor{quarto-callout-tip-color}{HTML}{06695F}%
+  \definecolor{quarto-callout-tip-color-frame}{HTML}{06695F}%
+  \definecolor{quarto-callout-important-color}{HTML}{0B2B2E}%
+  \definecolor{quarto-callout-important-color-frame}{HTML}{0B2B2E}%
+  \definecolor{quarto-callout-warning-color}{HTML}{9A3501}%
+  \definecolor{quarto-callout-warning-color-frame}{HTML}{9A3501}%
+  \definecolor{quarto-callout-caution-color}{HTML}{B81D2E}%
+  \definecolor{quarto-callout-caution-color-frame}{HTML}{B81D2E}%
+}
+
+% Overskrifter og tittel (KOMA-Script)
+\makeatletter
+\@ifclassloaded{scrartcl}{%
+  \setkomafont{disposition}{\pgtitlerfont\color{pgtekst}}
+  \setkomafont{title}{\pgtitlerfont\color{pgdyp}}
+  \setkomafont{subtitle}{\pgtitlerfonthalv\color{pgtekstdempet}\large}
+  \setkomafont{author}{\normalfont\color{pgtekstdempet}}
+  \setkomafont{date}{\normalfont\color{pgtekstdempet}}
+  \titlehead{\includegraphics[height=1.3cm]{_extensions/pgelisa/logo/pgelisa-logo-liggende.pdf}}
+}{}
+\makeatother
+
+% Taster (kbd-snarveien) i en tynn ramme
+\usepackage[skins,breakable]{tcolorbox}
+\newtcbox{\pgkbd}{on line, colback=pgflate, colframe=pglinjesterk,
+  boxrule=0.4pt, arc=2pt, left=2pt, right=2pt, top=0.5pt, bottom=0.5pt, boxsep=0pt}
+\providecommand{\kbd}[1]{\pgkbd{\small #1}}

@@ -1,29 +1,13 @@
 ---
 title: "Driftvarsling med OpenDrift"
 subtitle: "Geofag 2 · Python-oppsett"
-lang: nb
 date: 2026-10-30
-date-format: "D. MMMM YYYY"
+other-links:
+  - text: Last ned som PDF
+    href: opendrift.pdf
+    icon: file-pdf
 author:
   - "Elisabeth Engum"
-format:
-  html:
-    embed-resources: true
-    output-file: "opendrift.html"
-    title-block-banner: true
-    toc: true
-    toc-title: "Innhold"
-    toc-depth: 2
-    smooth-scroll: true
-    code-copy: true
-    code-block-bg: true
-  pdf:
-    output-file: "guide-opendrift.pdf"
-    include-in-header: geofag2-pdf-colors.tex
-    colorlinks: true
-    linkcolor: tealwave
-    urlcolor: ambersunset
-    citecolor: tealwave
 ---
 I denne notatboka bruker du **OpenDrift**, det samme verktøyet som Meteorologisk institutt bruker når de varsler oljesøl og hjelper redningstjenesten. Du henter ferske varsler for strøm og vind og ser hvor ting driver langs kysten.
 
@@ -37,8 +21,6 @@ I denne notatboka bruker du **OpenDrift**, det samme verktøyet som Meteorologis
 [3) Åpne og kjøre](#aapne)
 :::
 
-⏱️ Sist oppdatert: 30.10.2026
-
 ---
 
 ::: callout-important
@@ -47,7 +29,7 @@ I denne notatboka bruker du **OpenDrift**, det samme verktøyet som Meteorologis
 Du må ha installert **Miniforge** først. Har du gjort det i Geofag 2 eller i matematikk, kan du gå rett til steg 1 nedenfor. Hvis ikke, følger du [steg 1 i Python-guiden](index.html#installere) og kommer tilbake hit.
 :::
 
-## 1️⃣ Lage et miljø med OpenDrift {#miljo}
+## 1 Lage et miljø med OpenDrift {#miljo}
 
 OpenDrift trenger mange pakker, så den får sitt eget miljø, `opendrift`. Miljøet `geofag2` får være i fred.
 
@@ -69,13 +51,13 @@ conda create -n opendrift python=3.12 opendrift jupyterlab cmocean
 
 Når programmet har tenkt seg om, får du opp `Proceed ([y]/n)?`. Trykk {{< kbd Enter >}} for å fortsette. Nå lastes det ned mange pakker, så dette kan ta 10–20 minutter. Vent til du får tilbake linja med `(base)` før du går videre.
 
-## 2️⃣ Laste ned notatboka {#notatbok}
+## 2 Laste ned notatboka {#notatbok}
 
 Last ned [driftvarsling_opendrift.ipynb](opendrift/driftvarsling_opendrift.ipynb){download="driftvarsling_opendrift.ipynb"} og lagre den i mappa **Nedlastinger**.
 
 Vil du se hvordan notatboka ser ut når den er kjørt, kan du åpne [eksempelkjøringen](opendrift/driftvarsling_opendrift_eksempelkjoring.html). Den viser varselet fra 30. oktober 2026, så dine figurer blir annerledes.
 
-## 3️⃣ Åpne og kjøre {#aapne}
+## 3 Åpne og kjøre {#aapne}
 
 **1) Åpne «Miniforge Prompt» (Windows) / «Terminal» (Mac).**
 
@@ -116,25 +98,25 @@ Når du er ferdig med programmet, lukker du fanen i nettleseren.
 
 ::: {.callout-warning collapse="true"}
 ## Om noe går galt
-**«conda: command not found» / «conda gjenkjennes ikke»**
+**«conda: command not found» / «conda gjenkjennes ikke»**\
 Lukk terminalvinduet helt og åpne det på nytt. På Windows: pass på at du bruker «Miniforge Prompt», ikke vanlig «Ledetekst» eller PowerShell.
 
-**Det står fortsatt `(base)`**
+**Det står fortsatt `(base)`**\
 Da er miljøet ikke aktivert. Kjør `conda activate opendrift` på nytt og se etter skrivefeil i navnet.
 
-**«EnvironmentNameNotFound»**
+**«EnvironmentNameNotFound»**\
 Miljøet er ikke laget ennå, *eller* så er det skrivefeil. Gå tilbake til [steg 1](#miljo).
 
-**Jeg finner ikke notatboka i Jupyter Lab**
+**Jeg finner ikke notatboka i Jupyter Lab**\
 Du har startet Jupyter Lab i feil mappe. Lukk med {{< kbd ctrl-c >}}, skriv `cd Downloads` og start `jupyter lab` på nytt.
 
-**`ModuleNotFoundError: No module named 'opendrift'`**
+**`ModuleNotFoundError: No module named 'opendrift'`**\
 Jupyter Lab er startet fra feil miljø. Lukk alt og start på nytt fra [steg 3](#aapne).
 
-**«Fikk ikke kontakt med MET»**
+**«Fikk ikke kontakt med MET»**\
 Sjekk at du er på nett. Skolenettet kan stenge for enkelte tjenester. Prøv hjemme eller via mobilen.
 
-**Nettleserfanen åpner seg ikke av seg selv**
+**Nettleserfanen åpner seg ikke av seg selv**\
 Kopier adressen som begynner med `http://localhost:8888/...` fra terminalen og lim den inn i nettleseren.
 :::
 
