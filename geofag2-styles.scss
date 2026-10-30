@@ -1,0 +1,138 @@
+/*-- scss:defaults --*/
+
+// Fargepalett hentet fra bildet:
+// - Dyp nattblå himmel/hav
+// - Turkis/grønn bølgekrone
+// - Varm oransje/rav solnedgang
+// - Skum-hvit/krem lys
+// - Rustrød fjelltopp som aksentfarge
+
+$navy-deep:     #1a2f4a;  // mørk himmel/dyphav
+$teal-wave:     #2f8299;  // bølgens turkise kropp
+$teal-light:    #6fb8c4;  // lysere turkis i bølgeskummet
+$amber-sunset:  #e8813c;  // solnedgangsoransje
+$amber-glow:    #f4b860;  // varmt lys nær horisonten
+$foam-white:    #f7f4ec;  // skum / lys himmel
+$rust-mountain: #8c3a2f;  // fjelltopp, brukes sparsomt som aksent
+
+$theme: "geofag2" !default;
+
+$primary:       $teal-wave;
+$secondary:     $amber-sunset;
+$success:       #4a9d7f;
+$info:          $teal-light;
+$warning:       $amber-glow;
+$danger:        $rust-mountain;
+
+$body-bg:       $foam-white;
+$body-color:    $navy-deep;
+$link-color:    $teal-wave;
+
+// Skriftsnitt hentes fra Google Fonts, se geofag2-fonts.html (lastes inn via include-in-header)
+$font-family-base:      "Lora", Georgia, "Times New Roman", serif;
+$font-family-sans-serif: "Lora", Georgia, "Times New Roman", serif;
+$headings-font-family:  "Source Serif 4", Georgia, "Times New Roman", serif;
+$font-family-monospace:  "Fira Code", "SFMono-Regular", Menlo, Consolas, monospace;
+
+$headings-color: $navy-deep;
+$headings-font-weight: 600;
+$line-height-base: 1.65;
+
+/*-- scss:rules --*/
+
+// Banner øverst i dokumentet: dempet solnedgang -> bølge
+$navy-soft:   mix($navy-deep, white, 55%);
+$amber-soft:  mix($amber-sunset, white, 55%);
+$teal-soft:   mix($teal-wave, white, 55%);
+
+.quarto-title-block {
+  background:
+    linear-gradient(rgba($navy-deep, 0.4), rgba($navy-deep, 0.4)),
+    linear-gradient(120deg, $navy-soft 0%, $amber-soft 45%, $teal-soft 100%);
+  color: $foam-white;
+  padding: 2.5rem 2rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+
+  h1.title {
+    color: $foam-white;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    color: rgba($foam-white, 0.9);
+  }
+
+  .quarto-title-meta-contents,
+  .quarto-title-meta-heading {
+    color: rgba($foam-white, 0.85) !important;
+  }
+}
+
+// Innholdsfortegnelse: liten turkis kant, roligere enn standard
+#TOC {
+  border-left: 3px solid $teal-wave;
+  padding-left: 0.75rem;
+
+  a {
+    color: $navy-deep;
+  }
+  a:hover, a.active {
+    color: $teal-wave;
+    font-weight: 600;
+  }
+}
+
+// Kodeblokker: mørk "dyphav"-bakgrunn, varm tekst
+div.sourceCode, pre.sourceCode {
+  background-color: $navy-deep;
+  border-radius: 0.4rem;
+}
+code {
+  color: $amber-sunset;
+}
+pre.sourceCode code {
+  color: $foam-white;
+}
+
+// Kopier-knapp på kodeblokker: turkis i stedet for standard grå
+.code-copy-button {
+  color: $teal-light;
+}
+.code-copy-button:hover {
+  color: $amber-glow;
+}
+
+// Callouts: fargekodet etter samme palett
+div.callout-tip {
+  border-left-color: $teal-wave;
+}
+div.callout-tip .callout-icon::before {
+  background-color: $teal-wave;
+}
+
+div.callout-important {
+  border-left-color: $amber-sunset;
+}
+div.callout-important .callout-icon::before {
+  background-color: $amber-sunset;
+}
+
+div.callout-warning {
+  border-left-color: $rust-mountain;
+}
+div.callout-warning .callout-icon::before {
+  background-color: $rust-mountain;
+}
+
+// Overskrifter: tynn turkis underline på h2 for luft og struktur
+h2 {
+  border-bottom: 2px solid $teal-light;
+  padding-bottom: 0.3rem;
+}
+
+// Panel-tabs (Mac/Windows-fanene): aktiv fane i solnedgangsfarge
+.panel-tabset .nav-link.active {
+  color: $amber-sunset;
+  border-bottom: 2px solid $amber-sunset;
+  font-weight: 600;
+}
