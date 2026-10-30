@@ -1,0 +1,143 @@
+---
+title: "Installere og åpne Jupyter Lab"
+subtitle: "Geofag 2 · Python-oppsett"
+lang: nb
+date: 2026-08-17
+date-format: "D. MMMM YYYY"
+author:
+  - "Torodd Ottestad"
+  - "Elisabeth Engum"
+format: 
+  html:
+    embed-resources: true
+    output-file: "index.html"
+    title-block-banner: true
+    toc: true
+    toc-title: "Innhold"
+    toc-depth: 2
+    smooth-scroll: true
+    code-copy: true
+    code-block-bg: true
+  pdf:
+    output-file: "guide-miniforge.pdf"
+    include-in-header: geofag2-pdf-colors.tex
+    colorlinks: true
+    linkcolor: tealwave
+    urlcolor: ambersunset
+    citecolor: tealwave
+---
+En kort guide for å installere og åpne Jupyter Lab med Miniforge.
+
+::: {.callout-tip collapse="true"}
+## Guiden på 1-2-3
+
+[1) Installere Miniforge](#installere)
+
+[2) Lage et miljø med Jupyter Lab og viktige pakker](#miljo)
+
+[3) Åpne og kjøre](#aapne)
+:::
+
+⏱️ Sist oppdatert: 17.08.2026
+
+---
+
+## 1️⃣ Installere Miniforge {#installere}
+
+Miniforge laster du ned [her](https://conda-forge.org/download/).
+
+::: callout-important
+## Viktig
+
+Velg fila som passer til maskinen din:
+
+-   **Windows:** `Miniforge3-Windows-x86_64.exe`
+
+-   **Mac med Apple-brikke (M1, M2, M3, M4):** `Miniforge3-MacOSX-arm64.pkg`
+
+-   **Mac med Intel:** `Miniforge3-MacOSX-x86_64.pkg`
+
+Er du usikker på hva slags Mac du har? Klikk på eplet øverst til venstre → «Om denne datamaskinen» → se på linja «Brikke» eller «Prosessor».
+
+![](img/laste-ned-v2.png){fig-align="center"}
+:::
+
+Når du har lastet ned fila:
+
+-   åpne nedlastinger og klikk på fila
+-   følg installasjonsveiledningen
+-   på Windows: la det stå kryss ved **«Create start menu shortcuts»**
+-   **OBS:** Du trenger **ikke** lage bruker eller logge inn noe sted.
+
+## 2️⃣ Lage et miljø med Jupyter Lab og viktige pakker {#miljo}
+
+Resten av installasjonen skjer i terminalen. Det er litt ulikt på Mac og Windows. Se aktuell fane under:
+
+::: panel-tabset
+## Mac
+Åpne programmet «Terminal».
+Du kan søke etter appen med Spotlight: enten forstørrelsesglasset på menylinja øverst på skjermen eller snarveien {{< kbd Cmd-mellomrom >}} på tastaturet.
+
+## Windows
+Åpne programmet «Miniforge Prompt».
+Du kan søke etter appen fra Start-menyen. Trykk {{< kbd Windows >}}-knappen på tastaturet.
+:::
+
+I programmet/terminalen skal du skrive litt kode. Trykk {{< kbd Enter >}} etter hver linje. Husk at du kan kopiere inn kodelinjene herfra. Du trenger ikke skrive av.
+
+``` bash
+conda create -n geofag2 python=3.12 jupyterlab numpy matplotlib pandas scipy ipywidgets xarray netcdf4 cartopy requests
+```
+
+**OBS:** dette er et forslag, du kan legge til eller trekke fra pakker etter behov. 
+Når programmet har tenkt seg om (av og til ganske lenge) får du opp `Proceed ([y]/n)?`. Trykk {{< kbd Enter >}} for å fortsette.
+
+Nå har vi laget et *miljø* (et roterom) der vi har installert alt vi trenger. Blir det kluss, eller vi trenger andre pakker og programmer i andre fag, kan vi lage nye miljø.
+
+## 3️⃣ Åpne og kjøre {#aapne}
+
+::: callout-tip
+## Tips
+Det som står videre her er måten du åpner Jupyter Lab på. **Alltid**.
+:::
+
+**1) Åpne «Miniforge Prompt» (Windows) / «Terminal» (Mac).**
+
+**2) Skriv inn**
+
+``` bash
+conda activate geofag2
+```
+
+Du ser at du har gjort riktig om det står `(geofag2)`, og ikke `(base)` foran brukernavnet ditt.
+
+**3) Skriv inn**
+
+``` bash
+jupyter lab
+```
+Nå åpner programmet seg i en fane i nettleseren.
+
+::: callout-tip
+## Lukke
+Når du er ferdig med programmet, lukker du fanen i nettleseren.
+**I tillegg** går du tilbake til Miniforge Prompt / Terminal og trykker {{< kbd ctrl-c >}} på tastaturet.
+:::
+
+::: {.callout-warning collapse="true"}
+## Om noe går galt
+**«conda: command not found» / «conda gjenkjennes ikke»**
+Lukk terminalvinduet helt og åpne det på nytt. På Windows: pass på at du bruker «Miniforge Prompt», ikke vanlig «Ledetekst» eller PowerShell.
+**Det står fortsatt `(base)`**
+Da er miljøet ikke aktivert. Kjør `conda activate geofag2` på nytt og se etter skrivefeil i navnet.
+**«EnvironmentNameNotFound»**
+Miljøet er ikke laget ennå, *eller* så er det skrivefeil. Gå tilbake til [steg 2](#miljo).
+**Nettleserfanen åpner seg ikke av seg selv**
+Kopier adressen som begynner med `http://localhost:8888/...` fra terminalen og lim den inn i nettleseren.
+:::
+
+---
+
+## Videre
+
+-   [Driftvarsling med OpenDrift](opendrift.html): lag et eget miljø med OpenDrift og kjør en notatbok med ferske varsler fra Meteorologisk institutt.
