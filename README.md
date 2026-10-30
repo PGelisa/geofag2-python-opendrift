@@ -29,6 +29,10 @@ quarto render
 
 Da lages både HTML og PDF for begge guidene. HTML-filene er selvstendige: fonter, logo og bilder er bygd inn, og siden henter ingenting utenfra.
 
+## Publisering
+
+Sidene publiseres på <https://pgelisa.github.io/geofag2-python-opendrift/> av arbeidsflyten `.github/workflows/pages.yml`. Den kjører hver gang main endres, og publiserer de ferdig bygde filene `index.html`, `opendrift.html`, PDF-ene og mappa `opendrift/`. Husk derfor å kjøre `quarto render` og committe resultatet før du pusher.
+
 ## Designprofilen
 
 Utseendet kommer fra Quarto-utvidelsen i `_extensions/pgelisa`. Den gir to formater:
