@@ -19,7 +19,9 @@ En kort guide for å installere og åpne Jupyter Lab med Miniforge.
 
 [2) Lage et miljø med Jupyter Lab og viktige pakker](#miljo)
 
-[3) Åpne og kjøre](#aapne)
+[3) Lage en mappe til filene](#mappe)
+
+[4) Åpne og kjøre](#aapne)
 :::
 
 {{< include _velg-maskin.qmd >}}
@@ -74,7 +76,7 @@ Du kan søke etter appen fra Start-menyen. Trykk på {{< taster Windows >}}-tast
 I programmet/terminalen skal du skrive litt kode. Trykk {{< taster Enter mac="return" >}} etter hver linje. Husk at du kan kopiere inn kodelinjene herfra. Du trenger ikke skrive av.
 
 ``` bash
-conda create -n geofag2 python=3.12 jupyterlab numpy matplotlib pandas scipy ipywidgets xarray netcdf4 cartopy requests
+conda create -n geofag2 python=3.13 jupyterlab numpy matplotlib pandas scipy ipywidgets xarray netcdf4 cartopy requests
 ```
 
 **OBS:** dette er et forslag, du kan legge til eller trekke fra pakker etter behov. 
@@ -82,7 +84,46 @@ Når programmet har tenkt seg om (av og til ganske lenge) får du opp `Proceed (
 
 Nå har vi laget et *miljø* (et roterom) der vi har installert alt vi trenger. Blir det kluss, eller vi trenger andre pakker og programmer i andre fag, kan vi lage nye miljø.
 
-## 3 Åpne og kjøre {#aapne}
+## 3 Lage en mappe til filene {#mappe}
+
+Notatbøker og data til Geofag 2 skal ligge i en egen mappe, `Geofag2-filer`. Da slipper du å lete etter dem blant alt annet i Nedlastinger.
+
+Skriv inn i {{< os win="Miniforge Prompt" mac="Terminal" >}}, og trykk {{< taster Enter mac="return" >}}:
+
+``` bash
+mkdir Geofag2-filer
+```
+
+Mappa ligger i hjemmemappa di, den som har samme navn som brukeren din. Har du laget mappa før, får du beskjed om at den finnes allerede. Det gjør ingenting.
+
+::: callout-note
+## Mappe og miljø er to forskjellige ting
+`Geofag2-filer` er mappa der *filene* dine ligger. `geofag2` er *miljøet* med Python og pakkene. Du trenger begge.
+:::
+
+Vil du se mappa i {{< os win="Filutforsker" mac="Finder" >}}, skriver du disse to linjene:
+
+::: {.panel-tabset group="os"}
+## Mac
+``` bash
+cd Geofag2-filer
+open .
+```
+
+Dra gjerne mappa inn under «Favoritter» i sidefeltet i Finder, så finner du den lett igjen.
+
+## Windows
+``` bash
+cd Geofag2-filer
+explorer .
+```
+
+Høyreklikk gjerne mappa og velg «Fest til Hurtigtilgang», så finner du den lett igjen.
+:::
+
+Husk punktumet til slutt. Det betyr «mappa jeg står i».
+
+## 4 Åpne og kjøre {#aapne}
 
 ::: callout-tip
 ## Tips
@@ -99,12 +140,20 @@ conda activate geofag2
 
 Du ser at du har gjort riktig om det står `(geofag2)`, og ikke `(base)` foran brukernavnet ditt.
 
-**3) Skriv inn**
+**3) Gå til mappa med filene**
+
+``` bash
+cd Geofag2-filer
+```
+
+Terminalen starter alltid i hjemmemappa di, så du kommer rett inn i mappa `Geofag2-filer`.
+
+**4) Skriv inn**
 
 ``` bash
 jupyter lab
 ```
-Nå åpner programmet seg i en fane i nettleseren.
+Nå åpner programmet seg i en fane i nettleseren. Lista til venstre viser filene i `Geofag2-filer`.
 
 ::: callout-tip
 ## Lukke
@@ -122,6 +171,12 @@ Da er miljøet ikke aktivert. Kjør `conda activate geofag2` på nytt og se ette
 
 **«EnvironmentNameNotFound»**\
 Miljøet er ikke laget ennå, *eller* så er det skrivefeil. Gå tilbake til [steg 2](#miljo).
+
+**«No such file or directory» / «Finner ikke angitt bane» når du skriver `cd Geofag2-filer`**\
+Mappa er ikke laget ennå, *eller* så er det skrivefeil. Gå tilbake til [steg 3](#mappe).
+
+**Jeg finner ikke filene mine i Jupyter Lab**\
+Du har startet Jupyter Lab i feil mappe. Lukk med {{< taster Ctrl C mac="control C" >}}, skriv `cd Geofag2-filer` og start `jupyter lab` på nytt.
 
 **Nettleserfanen åpner seg ikke av seg selv**\
 Kopier adressen som begynner med `http://localhost:8888/...` fra terminalen og lim den inn i nettleseren.
