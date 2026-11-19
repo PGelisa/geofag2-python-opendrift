@@ -14,9 +14,11 @@ Notatboka ligger i `opendrift/driftvarsling_opendrift.ipynb`, sammen med en ferd
 ```
 _quarto.yml              prosjektoppsett: hvilke filer som bygges, og i hvilke formater
 index.qmd, opendrift.qmd guidene
+_velg-maskin.qmd         valget mellom Mac og Windows øverst i guidene
 img/                     bilder i guidene
 opendrift/               notatboka og eksempelkjøringen
 _extensions/pgelisa/     designprofilen PGelisa på tur
+.github/workflows/       publisering til GitHub Pages
 ```
 
 ## Bygge guidene
