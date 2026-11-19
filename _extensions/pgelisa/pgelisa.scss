@@ -19,7 +19,12 @@ $merke-pa:      #06201E !default;  // tekst oppå merke
 $merke-tekst:   #06695F !default;  // lenker og uthevinger
 $dyp:           #0E4A52 !default;  // dypvann, tittelfelt
 $dyp-pa:        #FFFFFF !default;  // tekst oppå dyp
-$aksent-lav:    #C9D43C !default;  // kartlav, liten aksent
+$aksent-sol:    #F7D63B !default;  // smørblomst, hovedaksent (ikke tekst)
+$aksent-sol-pa: #2B2400 !default;  // tekst oppå aksent-sol
+$markering:     #FBECAC !default;  // lys gul markering bak nøkkelord
+$aksent-lav:    #C9D43C !default;  // kartlav, sjelden detalj
+$aksent-lyng:   #D46A8C !default;  // klokkelyng, varm aksent
+$aksent-lyng-pa: #2A0A16 !default; // tekst oppå aksent-lyng
 $fokus:         #06695F !default;  // fokusring
 
 // Status
@@ -45,6 +50,8 @@ $info:               $status-info;
 $warning:            $status-advarsel;
 $danger:             $status-feil;
 $border-color:       $linje;
+$mark-bg:            $markering;
+$mark-color:         $tekst;
 
 $font-family-sans-serif: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
 $headings-font-family:   "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
@@ -205,6 +212,9 @@ div.callout .callout-body-container { color: $tekst; }
   border-top: 0;
   border-radius: 0 0 10px 10px;
 }
+
+// Markering bak nøkkelord ([tekst]{.mark} eller <mark>)
+mark, .mark { background-color: $markering; color: $tekst; padding: 0.05em 0.2em; border-radius: 3px; }
 
 // Skillelinjer
 hr { border-color: $linje; opacity: 1; }

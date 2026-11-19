@@ -1,7 +1,7 @@
 {
  "text-color": "#EAF3F0",
  "background-color": "#12302F",
- "line-number-color": "#B2C1BF",
+ "line-number-color": "#D2D9D8",
  "line-number-background-color": null,
  "text-styles": {
   "Alert": {
@@ -12,7 +12,7 @@
    "underline": false
   },
   "Annotation": {
-   "text-color": "#B2C1BF",
+   "text-color": "#D2D9D8",
    "background-color": null,
    "bold": false,
    "italic": true,
@@ -47,14 +47,14 @@
    "underline": false
   },
   "Comment": {
-   "text-color": "#B2C1BF",
+   "text-color": "#D2D9D8",
    "background-color": null,
    "bold": false,
    "italic": true,
    "underline": false
   },
   "CommentVar": {
-   "text-color": "#B2C1BF",
+   "text-color": "#D2D9D8",
    "background-color": null,
    "bold": false,
    "italic": true,
@@ -89,7 +89,7 @@
    "underline": false
   },
   "Documentation": {
-   "text-color": "#B2C1BF",
+   "text-color": "#D2D9D8",
    "background-color": null,
    "bold": false,
    "italic": true,

@@ -30,7 +30,7 @@ En kort guide for å installere og åpne Jupyter Lab med Miniforge.
 
 ## 1 Installere Miniforge {#installere}
 
-Miniforge laster du ned [her](https://conda-forge.org/download/).
+Miniforge laster du ned fra [nedlastingssiden for Miniforge](https://conda-forge.org/download/).
 
 ::: callout-important
 ## Viktig
@@ -49,7 +49,7 @@ Er du usikker på hva slags Mac du har? Klikk på eplet øverst til venstre → 
 -   **Windows:** `Miniforge3-Windows-x86_64.exe`
 :::
 
-![](img/laste-ned-v2.png){fig-align="center"}
+![Nedlastingssiden for Miniforge. Den nyeste utgaven er markert, med .pkg-filer for Mac og .exe-fil for Windows.](img/laste-ned-v2.png){fig-align="center"}
 :::
 
 Når du har lastet ned fila:

@@ -16,7 +16,11 @@
 \definecolor{pgmerke}{HTML}{13A091}
 \definecolor{pgmerketekst}{HTML}{06695F}
 \definecolor{pgdyp}{HTML}{0E4A52}
+\definecolor{pgaksentsol}{HTML}{F7D63B}
+\definecolor{pgaksentsolpa}{HTML}{2B2400}
+\definecolor{pgmarkering}{HTML}{FBECAC}
 \definecolor{pgaksentlav}{HTML}{C9D43C}
+\definecolor{pgaksentlyng}{HTML}{D46A8C}
 % Status
 \definecolor{pgok}{HTML}{06695F}
 \definecolor{pgokflate}{HTML}{EDFAF8}
@@ -65,7 +69,7 @@
 % Lange kodelinjer brytes i stedet for å gå ut over kanten
 \usepackage{fvextra}
 \AtBeginDocument{%
-  \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}%
+  \RecustomVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,breaknonspaceingroup,commandchars=\\\{\}}%
 }
 
 % Callout-farger i profilens statusfarger. Quarto definerer sine egne etter denne fila,

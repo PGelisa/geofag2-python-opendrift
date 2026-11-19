@@ -15,6 +15,11 @@ contributes:
       language:
         title-block-published: "Sist oppdatert"
         title-block-author-plural: "Forfattere"
+        callout-note-title: "Merknad"
+        callout-tip-title: "Tips"
+        callout-important-title: "Viktig"
+        callout-warning-title: "Advarsel"
+        callout-caution-title: "Obs"
     html:
       theme:
         light: [pgelisa.scss]
